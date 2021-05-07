@@ -1,7 +1,14 @@
-## curso-platzi-react-avanzado ⚛️
+##instaChris
 
-**¡Sígueme en Youtube para más contenido de React y Javascript!** 👉 https://www.youtube.com/midudev
+curso de react - avanzado
 
-**¡Sígueme en Twitch para streams sobre desarrollo web!** 👉 https://www.twitch.tv/midudev
+para actualizar las dependencias
+>npm install
 
-Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)
+para hacerlo correr
+>npm run dev
+
+para deployarlo en produccion
+>verce --prod
+
+Nota: para deployarlo debes configurar tu ambiente de produccion en vercel.
