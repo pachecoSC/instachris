@@ -1,14 +1,15 @@
-##instaChris
+#instaChris
 
 curso de react - avanzado
+application similar to instagram purpose to understand how the components, functions, and other elements and configurations of react
 
-para actualizar las dependencias
+commands to update dependencies
 >npm install
 
-para hacerlo correr
+commands to make it run
 >npm run dev
 
-para deployarlo en produccion
+commands to deploy it in production in vercel
 >verce --prod
 
-Nota: para deployarlo debes configurar tu ambiente de produccion en vercel.
+Note: to deploy you must configure your production environment in vercel.
