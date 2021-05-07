@@ -1,4 +1,4 @@
-#instaChris
+# instaChris
 
 curso de react - avanzado
 application similar to instagram purpose to understand how the components, functions, and other elements and configurations of react
