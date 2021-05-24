@@ -7,6 +7,7 @@ import { GlobalStyle } from './styles/GlobalStyle'
 import { Logo } from './components/Logo'
 import { Detail } from './pages/detail'
 import { Home } from './pages/home'
+import { NavBar } from './components/NavBar'
 
 import { Router } from '@reach/router'
 
@@ -26,6 +27,7 @@ export const App = () => {
           <Home path='/pet/:id' />
           <Detail path='/detail/:detailId' />
       </Router>
+      <NavBar />
     </>
   )
 }
