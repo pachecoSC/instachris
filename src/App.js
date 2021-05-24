@@ -3,16 +3,17 @@
 import React, { Fragment } from 'react'
 
 import { GlobalStyle } from './styles/GlobalStyle'
-import { ListOfCategories } from './components/ListOfCategories'
-// import { PhotoCard } from "./components/PhotoCard";
-import { ListOfPhotoCard } from './components/ListOfPhotoCard'
+
 import { Logo } from './components/Logo'
-import { PhotoCardWithQuery } from './container/PhotoCardWithQuery'
+import { Detail } from './pages/detail'
+import { Home } from './pages/home'
+
+import { Router } from '@reach/router'
 
 export const App = () => {
-  const urlParams = new window.URLSearchParams(window.location.search)
-  const detailId = urlParams.get('detail')
-  console.log(detailId)
+  // const urlParams = new window.URLSearchParams(window.location.search)
+  // const detailId = urlParams.get('detail')
+  // console.log(detailId)
 
   return (
     <>
@@ -20,12 +21,19 @@ export const App = () => {
       <div style={{ textAlign: 'center' }}>
         <Logo />
       </div>
-      {detailId
-        ? <PhotoCardWithQuery id={detailId} />
-        : <>
-            <ListOfCategories />
-            <ListOfPhotoCard />
-          </>}
+      <Router>
+          <Home path='/' />
+          <Home path='/pet/:id' />
+          <Detail path='/detail/:detailId' />
+      </Router>
     </>
   )
 }
+// ejemplo de trabajar con dos formas de ruteo una normal y otra con reach
+/* {detailId
+  ? <PhotoCardWithQuery id={detailId} />
+  : <Router>
+      <Home path='/' />
+      <Home path='/pet/:id' />
+    </Router>}
+*/
