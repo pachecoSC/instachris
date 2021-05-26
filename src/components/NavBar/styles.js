@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { Link as LinkRouter } from '@reach/router'
 import { fadeIn } from '../../styles/animation'
 
+import { MdHome, MdFavoriteBorder, MdPersonOutline } from 'react-icons/md'
+
 export const Nav = styled.nav`
   align-items: center;
   background: #fcfcfc;
@@ -39,4 +41,13 @@ export const Link = styled(LinkRouter)`
       line-height: 20px;
     }
   }
+`
+export const IconFavorite = styled(MdFavoriteBorder)`
+  color: #8d00ff;
+`
+export const IconHome = styled(MdHome)`
+  color: #8d00ff;
+`
+export const IconUser = styled(MdPersonOutline)`
+  color: #8d00ff;
 `
