@@ -1,21 +1,25 @@
-/* eslint-disable react/jsx-indent */
+/* eslint-disable multiline-ternary */
 
 import React, { Fragment } from 'react'
 
 import { GlobalStyle } from './styles/GlobalStyle'
 
 import { Logo } from './components/Logo'
-import { Detail } from './pages/detail'
-import { Home } from './pages/home'
 import { NavBar } from './components/NavBar'
+import { Home } from './pages/home'
+import { Detail } from './pages/detail'
+import { Favs } from './pages/favs'
+import { User } from './pages/user'
+import { NotRegisteredUser } from './pages/notRegisteredUser'
 
 import { Router } from '@reach/router'
 
-export const App = () => {
-  // const urlParams = new window.URLSearchParams(window.location.search)
-  // const detailId = urlParams.get('detail')
-  // console.log(detailId)
+import Context from './Context'
+// const UserLogged = ({ children }) => {
+//   return children({ isAuth: false })
+// }
 
+export const App = () => {
   return (
     <>
       <GlobalStyle />
@@ -23,10 +27,27 @@ export const App = () => {
         <Logo />
       </div>
       <Router>
-          <Home path='/' />
-          <Home path='/pet/:id' />
-          <Detail path='/detail/:detailId' />
+        <Home path='/' />
+        <Home path='/pet/:id' />
+        <Detail path='/detail/:detailId' />
       </Router>
+      {/* rutas protegidas con autenticacion de usuario */}
+      {/* <UserLogged> */}
+      <Context.Consumer>
+        {({ isAuth }) =>
+          isAuth ? (
+            <Router>
+              <Favs path='/favs' />
+              <User path='/user' />
+            </Router>
+          ) : (
+            <Router>
+              <NotRegisteredUser path='/favs' />
+              <NotRegisteredUser path='/user' />
+            </Router>
+          )}
+      </Context.Consumer>
+      {/* </UserLogged> */}
       <NavBar />
     </>
   )

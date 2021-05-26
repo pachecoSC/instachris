@@ -5,14 +5,18 @@ import ReactDOM from 'react-dom'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import { App } from './App'
 
+import Context from './Context'
+
 const client = new ApolloClient({
   uri: 'https://instachris-server.vercel.app/graphql',
   cache: new InMemoryCache()
 })
 // ReactDOM.render(<h1>Hola Pacheco</h1>, document.getElementById('app'))
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
+  <Context.Provider>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </Context.Provider>,
   document.getElementById('app')
 )
