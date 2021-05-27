@@ -1,3 +1,4 @@
+/* eslint-disable multiline-ternary */
 import React from 'react'
 import { useinputValue } from '../../hooks/useInputValue'
 import {
@@ -22,11 +23,18 @@ export const FormUser = ({ onSubmit, title }) => {
   const password = useinputValue('')
   // const [email, setEmail] = useState('')
   // const [password, setPassword] = useState('')
+  const login = title === 'Iniciar Sesión'
+
+  const HandleSubmit = (event) => {
+    event.preventDefault()
+    onSubmit({ email: email.value, password: password.value })
+  }
+
   return (
     <Div>
       <IconFingerPrint size='6rem' />
       <Title> {title} </Title>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={HandleSubmit}>
         <Input
           id='userEmail'
           placeholder='ingresar email'
@@ -43,25 +51,33 @@ export const FormUser = ({ onSubmit, title }) => {
           // value={password}
           // onChange={(e) => setPassword(e.target.value)}
         />
-        {title === 'Iniciar Sesión' ? <LinkText to='/'>olvidaste la contraseña?</LinkText> : ''}
+        {login ? <LinkText to='/'>¿olvidaste la contraseña?</LinkText> : <br />}
 
         <Button>{title}</Button>
-        <TextO> --- ó ---</TextO>
-        <ElementHorizontal>
-          <LinkIcon to='/'>
-            <IconFb />
-          </LinkIcon>
-          <LinkIcon to='/'>
-            <IconIg />
-          </LinkIcon>
-          <LinkIcon to='/'>
-            <IconGit />
-          </LinkIcon>
-        </ElementHorizontal>
+        {login ? <TextO> --- ó ---</TextO> : <p />}
+        {login ? (
+          <ElementHorizontal>
+            <LinkIcon to='/'>
+              <IconFb />
+            </LinkIcon>
+            <LinkIcon to='/'>
+              <IconIg />
+            </LinkIcon>
+            <LinkIcon to='/'>
+              <IconGit />
+            </LinkIcon>
+          </ElementHorizontal>
+        ) : (
+          <p />
+        )}
       </Form>
-      <TextO>
-        No esta registrado, desea <LinkRegistro to='/'>Registrarse</LinkRegistro>
-      </TextO>
+      {login ? (
+        <TextO>
+          No esta registrado, desea <LinkRegistro to='/singUp'>Registrarse</LinkRegistro>
+        </TextO>
+      ) : (
+        <p />
+      )}
     </Div>
   )
 }

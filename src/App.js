@@ -11,6 +11,7 @@ import { Detail } from './pages/detail'
 import { Favs } from './pages/favs'
 import { User } from './pages/user'
 import { NotRegisteredUser } from './pages/notRegisteredUser'
+import { SingUp } from './pages/singUp'
 
 import { Router } from '@reach/router'
 
@@ -30,6 +31,7 @@ export const App = () => {
         <Home path='/' />
         <Home path='/pet/:id' />
         <Detail path='/detail/:detailId' />
+        <SingUp path='/singUp' />
       </Router>
       {/* rutas protegidas con autenticacion de usuario */}
       {/* <UserLogged> */}
