@@ -1,22 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Context from '../Context'
-
+import { useRegisterMutation } from '../container/RegisterMutation'
 import { FormUser } from '../components/FormUser'
 
-export const NotRegisteredUser = () => (
-  // <h1>NotRegisteredUser</h1>
-  <Context.Consumer>
-    {
-      // dentro del consumer espera una render prop == una funcion que tiene que recibe parametros y renderiza algo
-      ({ isAuth, activateAuth }) => {
-        // el elemento a rederizar
-        return <FormUser onSubmit={activateAuth} title='Iniciar Sesión' />
-        // (
-        //   <FormUser onSubmit={activateAuth}>
-        //     <button>Iniciar sesion</button>
-        //   </FormUser>
-        // )
-      }
-    }
-  </Context.Consumer>
-)
+export const NotRegisteredUser = () => {
+  const { registerMutation } = useRegisterMutation()
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  return (
+    <Context.Consumer>
+      {({ activateAuth }) => {
+        const onSubmit = ({ email, password }) => {
+          setLoading(true)
+          const input = { email, password }
+          const variables = { input }
+          // registerMutation({ variables }).then(activateAuth)
+          registerMutation({ variables }).then(
+            () => {
+              activateAuth()
+              setLoading(false)
+            },
+            (error) => {
+              setError('El usuario ya existe o hay algún problema.' + error)
+              setLoading(false)
+            }
+          )
+        }
+        return <FormUser disabled={loading} error={error} onSubmit={onSubmit} title='Registrarse' />
+      }}
+    </Context.Consumer>
+  )
+}

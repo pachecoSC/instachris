@@ -10,6 +10,6 @@ commands to make it run
 >npm run dev
 
 commands to deploy it in production in vercel
->verce --prod
+>vercel --prod
 
 Note: to deploy you must configure your production environment in vercel.

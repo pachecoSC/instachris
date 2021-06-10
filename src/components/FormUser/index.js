@@ -15,10 +15,11 @@ import {
   IconGit,
   TextO,
   ElementHorizontal,
-  LinkRegistro
+  LinkRegistro,
+  Error
 } from './styles'
 
-export const FormUser = ({ onSubmit, title }) => {
+export const FormUser = ({ error, disabled, onSubmit, title }) => {
   const email = useinputValue('')
   const password = useinputValue('')
   // const [email, setEmail] = useState('')
@@ -34,8 +35,9 @@ export const FormUser = ({ onSubmit, title }) => {
     <Div>
       <IconFingerPrint size='6rem' />
       <Title> {title} </Title>
-      <Form onSubmit={HandleSubmit}>
+      <Form disabled={disabled} onSubmit={HandleSubmit}>
         <Input
+          disabled={disabled}
           id='userEmail'
           placeholder='ingresar email'
           // version larga..  value={email.value} onChange={email.onchange}
@@ -44,6 +46,7 @@ export const FormUser = ({ onSubmit, title }) => {
           // onChange={(e) => setEmail(e.target.value)}
         />
         <Input
+          disabled={disabled}
           id='userPassword'
           type='password'
           placeholder='ingresar contraseña'
@@ -53,7 +56,7 @@ export const FormUser = ({ onSubmit, title }) => {
         />
         {login ? <LinkText to='/'>¿olvidaste la contraseña?</LinkText> : <br />}
 
-        <Button>{title}</Button>
+        <Button disabled={disabled}>{title}</Button>
         {login ? <TextO> --- ó ---</TextO> : <p />}
         {login ? (
           <ElementHorizontal>
@@ -71,13 +74,16 @@ export const FormUser = ({ onSubmit, title }) => {
           <p />
         )}
       </Form>
-      {login ? (
-        <TextO>
-          No esta registrado, desea <LinkRegistro to='/singUp'>Registrarse</LinkRegistro>
-        </TextO>
-      ) : (
-        <p />
-      )}
+      <>
+        {error && <Error>{error}</Error>}
+        {login ? (
+          <TextO>
+            No esta registrado, desea <LinkRegistro to='/singUp'>Registrarse</LinkRegistro>
+          </TextO>
+        ) : (
+          <p />
+        )}
+      </>
     </Div>
   )
 }
