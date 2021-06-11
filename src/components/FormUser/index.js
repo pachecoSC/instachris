@@ -25,7 +25,7 @@ export const FormUser = ({ error, disabled, onSubmit, title }) => {
   // const [email, setEmail] = useState('')
   // const [password, setPassword] = useState('')
   const login = title === 'Iniciar Sesión'
-
+  console.log('dentro del form: ' + disabled)
   const HandleSubmit = (event) => {
     event.preventDefault()
     onSubmit({ email: email.value, password: password.value })

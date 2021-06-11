@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Context from '../Context'
-import { useRegisterMutation } from '../container/RegisterMutation'
+import { useLoginMutation } from '../container/LoginMutation'
 import { FormUser } from '../components/FormUser'
 
 export const NotRegisteredUser = () => {
-  const { registerMutation } = useRegisterMutation()
+  const { loginMutation } = useLoginMutation()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -16,18 +16,22 @@ export const NotRegisteredUser = () => {
           const input = { email, password }
           const variables = { input }
           // registerMutation({ variables }).then(activateAuth)
-          registerMutation({ variables }).then(
+          loginMutation({ variables }).then(
             () => {
               activateAuth()
               setLoading(false)
             },
             (error) => {
-              setError('El usuario ya existe o hay algún problema.' + error)
+              setError(' ' + error)
               setLoading(false)
             }
           )
         }
-        return <FormUser disabled={loading} error={error} onSubmit={onSubmit} title='Registrarse' />
+        // Iniciar Sesión -- Registrarse
+        // console.log('antes de llamar el formulario: ' + loading)
+        return (
+          <FormUser disabled={loading} error={error} onSubmit={onSubmit} title='Iniciar Sesión' />
+        )
       }}
     </Context.Consumer>
   )
