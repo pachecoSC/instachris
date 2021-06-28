@@ -1,6 +1,6 @@
 /* eslint-disable multiline-ternary */
 
-import React, { Fragment } from 'react'
+import React, { useContext } from 'react'
 
 import { GlobalStyle } from './styles/GlobalStyle'
 
@@ -12,15 +12,17 @@ import { Favs } from './pages/favs'
 import { User } from './pages/user'
 import { NotRegisteredUser } from './pages/notRegisteredUser'
 import { SingUp } from './pages/singUp'
+import { NotFound } from './pages/notFound'
 
-import { Router } from '@reach/router'
+import { Router, Redirect } from '@reach/router'
 
-import Context from './Context'
+import { Context } from './Context'
 // const UserLogged = ({ children }) => {
 //   return children({ isAuth: false })
 // }
 
 export const App = () => {
+  const { isAuth } = useContext(Context)
   return (
     <>
       <GlobalStyle />
@@ -28,28 +30,19 @@ export const App = () => {
         <Logo />
       </div>
       <Router>
+        <NotFound default />
         <Home path='/' />
         <Home path='/pet/:id' />
         <Detail path='/detail/:detailId' />
         <SingUp path='/singUp' />
+        {!isAuth && <NotRegisteredUser path='/login' />}
+        {!isAuth && <Redirect noThrow from='/favs' to='/login' />}
+        {!isAuth && <Redirect noThrow from='/user' to='/login' />}
+        {isAuth && <Redirect noThrow from='/login' to='/' />}
+        <Favs path='/favs' />
+        <User path='/user' />
       </Router>
-      {/* rutas protegidas con autenticacion de usuario */}
-      {/* <UserLogged> */}
-      <Context.Consumer>
-        {({ isAuth }) =>
-          isAuth ? (
-            <Router>
-              <Favs path='/favs' />
-              <User path='/user' />
-            </Router>
-          ) : (
-            <Router>
-              <NotRegisteredUser path='/favs' />
-              <NotRegisteredUser path='/user' />
-            </Router>
-          )}
-      </Context.Consumer>
-      {/* </UserLogged> */}
+
       <NavBar />
     </>
   )
