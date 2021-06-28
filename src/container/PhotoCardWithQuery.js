@@ -6,21 +6,13 @@ import { getSinglePhoto } from '../hooc/singlePhoto'
 export const PhotoCardWithQuery = ({ id }) => {
   const { loading, error, data } = useQuery(getSinglePhoto, {
     variables: { id }
-
   })
-  if (error) {
-    return <h2>Internal Server Error</h2>
-  }
-  if (loading) {
-    // return <h2>Loading...</h2>
-    return ''
-  }
+  if (error) return <h2>Internal Server Error</h2>
+  if (loading) return ''
   // obtenemos el objeto photo y lo inicializamos vacio {}
   const { photo = {} } = data
   // devolvemos el elemento
-  return (
-    <PhotoCard key={photo.id} {...photo} />
-  )
+  return <PhotoCard key={photo.id} {...photo} />
 }
 // otra forma
 // export const PhotoCardWithQuery = ({ id }) => {
