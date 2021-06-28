@@ -8,9 +8,15 @@ export const ListOfPhotoCard = ({ categoryId }) => {
   // en lugar de categoryId en los parametros ponemos props y utilizamos la siguiente linea.
   // const categoryId = props.categoryId
 
-  const { loading, error, data } = useQuery(whitPhotos, {
-    variables: { categoryId } // enviar dinamicamente.
-  })
+  const { loading, error, data } = useQuery(
+    whitPhotos,
+    {
+      variables: { categoryId } // enviar dinamicamente.
+    },
+    {
+      fetchPolicy: 'cache-and-network'
+    }
+  )
 
   if (error) {
     return <h2>Internal Server Error</h2>
@@ -24,9 +30,11 @@ export const ListOfPhotoCard = ({ categoryId }) => {
     ) */
   }
 
+  const { photos } = data != undefined ? data : []
+
   return (
     <List>
-      {data.photos.map((photo) => (
+      {photos.map((photo) => (
         <PhotoCard key={photo.id} {...photo} />
       ))}
 

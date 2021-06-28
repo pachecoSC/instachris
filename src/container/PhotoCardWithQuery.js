@@ -6,6 +6,8 @@ import { getSinglePhoto } from '../hooc/singlePhoto'
 export const PhotoCardWithQuery = ({ id }) => {
   const { loading, error, data } = useQuery(getSinglePhoto, {
     variables: { id }
+  }, {
+    fetchPolicy: 'network-only'
   })
   if (error) return <h2>Internal Server Error</h2>
   if (loading) return ''

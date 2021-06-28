@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { Context } from '../Context'
 import { FormUser } from '../components/FormUser'
 import { useRegisterMutation } from '../container/RegisterMutation'
+import { navigate } from '@reach/router'
 
 // const activateAuth = () => {}
 export const SingUp = () => {
@@ -21,6 +22,8 @@ export const SingUp = () => {
         const { signup } = data
         activateAuth(signup)
         setLoading(false)
+        // window.location.href = "/"
+        navigate('/user')
       },
       (error) => {
         setError(' ' + error) // El usuario ya existe o hay algún problema.

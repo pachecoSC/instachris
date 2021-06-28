@@ -4,7 +4,6 @@ import { useinputValue } from '../../hooks/useInputValue'
 import {
   Form,
   Input,
-  Button,
   Title,
   Div,
   LinkText,
@@ -18,6 +17,7 @@ import {
   LinkRegistro,
   Error
 } from './styles'
+import {SubmitButton} from '../SubmitButton'
 
 export const FormUser = ({ error, disabled, onSubmit, title }) => {
   const email = useinputValue('')
@@ -56,7 +56,7 @@ export const FormUser = ({ error, disabled, onSubmit, title }) => {
         />
         {login ? <LinkText to='/'>¿olvidaste la contraseña?</LinkText> : <br />}
 
-        <Button disabled={disabled}>{title}</Button>
+        <SubmitButton disabled={disabled}>{title}</SubmitButton>
         {login ? <TextO> --- ó ---</TextO> : <p />}
         {login ? (
           <ElementHorizontal>

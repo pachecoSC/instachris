@@ -12,14 +12,16 @@ const Provider = ({ children }) => {
     activateAuth: (token) => {
       window.sessionStorage.setItem('token', token)
       setIsAuth(true)
+    },
+    removeAuth: () => {
+      setIsAuth(false)
+      window.sessionStorage.removeItem('token')
+      // client.resetStore()
+      __APOLLO_CLIENT__.resetStore()
     }
   }
 
-  return (
-    <Context.Provider value={value}>
-      {children}
-    </Context.Provider>
-  )
+  return <Context.Provider value={value}>{children}</Context.Provider>
 }
 
 // export default Context

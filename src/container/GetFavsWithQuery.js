@@ -7,11 +7,6 @@ export const GetFavsWithQuery = () => {
   const { loading, data, error } = useQuery(GET_FAVORITES, {
     fetchPolicy: "cache-and-network"
   })
-
-    // , { fetchPolicy: 'network-only' })
-  // return { loading, data, error }
-  // console.log(error)
-  // console.log(data)
   if (error) return <h2>Internal Server Error</h2>
   if (loading) return ''
   const { favs } = (data != undefined)?data:[]
