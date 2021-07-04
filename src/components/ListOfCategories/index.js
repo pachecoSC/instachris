@@ -9,7 +9,7 @@ import { List, Item } from './styles'
 
 import { useCategoriesData } from '../../hooks/useCategoriesData'
 
-export const ListOfCategories = () => {
+const ListOfCategoriesComponent = () => {
   // const [categories, setCategories] = useState(MockupCategories);
   const [showFixed, setShowFixed] = useState(false)
   const { categories, loading } = useCategoriesData()
@@ -52,3 +52,5 @@ export const ListOfCategories = () => {
     </>
   )
 }
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent)
