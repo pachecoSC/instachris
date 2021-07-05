@@ -1,6 +1,6 @@
 import React from 'react'
-
-export const NotFound = () => (
+// const NotFound =
+export default () => (
   <h1>
     404<p>esta pagina no existe</p>
   </h1>

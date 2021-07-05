@@ -4,7 +4,8 @@ import { GetFavsWithQuery } from '../container/GetFavsWithQuery'
 // import { Helmet } from 'react-helmet'
 import { Layout } from '../components/Layout'
 
-export const Favs = () => (
+// const Favs
+export default () => (
   <Layout title='favoritos' subtitle='muestra las imagenes favoritas'>
     {/* <Helmet>
       <title>InstaChris - favoritos</title>

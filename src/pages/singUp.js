@@ -5,7 +5,8 @@ import { useRegisterMutation } from '../container/RegisterMutation'
 import { navigate } from '@reach/router'
 
 // const activateAuth = () => {}
-export const SingUp = () => {
+// const SingUp =
+export default () => {
   const { registerMutation } = useRegisterMutation()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')

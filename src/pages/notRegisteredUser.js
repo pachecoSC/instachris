@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react'
 import { Context } from '../Context'
 import { useLoginMutation } from '../container/LoginMutation'
 import { FormUser } from '../components/FormUser'
-
-export const NotRegisteredUser = () => {
+// const NotRegisteredUser =
+export default () => {
   const { loginMutation } = useLoginMutation()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
