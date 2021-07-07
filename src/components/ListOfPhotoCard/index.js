@@ -30,7 +30,7 @@ export const ListOfPhotoCard = ({ categoryId }) => {
     ) */
   }
 
-  const { photos } = data != undefined ? data : []
+  const { photos } = data !== undefined ? data : []
 
   return (
     <List>

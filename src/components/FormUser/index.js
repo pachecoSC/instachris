@@ -17,7 +17,7 @@ import {
   LinkRegistro,
   Error
 } from './styles'
-import {SubmitButton} from '../SubmitButton'
+import { SubmitButton } from '../SubmitButton'
 
 export const FormUser = ({ error, disabled, onSubmit, title }) => {
   const email = useinputValue('')
