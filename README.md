@@ -13,3 +13,5 @@ commands to deploy it in production in vercel
 >vercel --prod
 
 Note: to deploy you must configure your production environment in vercel.
+
+normalmente no se sube la carpeta cypress ya que es una forma de testeo por tema de academico esta carpeta tambien se agrega al repositorio.
