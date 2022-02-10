@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>InstaChris</title><script>console.log('%cAdvertencia', "color: red; font-family:'Comic Sans MS'; font-size:50px")
+      console.log('%cEsta función del navegador está pensada para desarrolladores', "color: gray; font-family:'Comic Sans MS'; font-size:20px")</script><script defer="defer" src="/app.bundle.js"></script><meta name="theme-color" content="#2196f3" /><link rel="manifest" href="/manifest.d5c704ecbe622325b0fb3f9f925a4995.json" crossorigin="use-credentials" /></head><body><div id="app"></div><noscript><h3>Esta app necesita Javascript para anunciar</h3></noscript><script>if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('SW registrado')
+            })
+            .catch(registrationError => {
+              console.log('SW error', registrationError)
+            })
+        })
+      }</script></body></html>

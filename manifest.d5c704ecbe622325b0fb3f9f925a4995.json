@@ -1,0 +1,53 @@
+{
+  "icons": [
+    {
+      "src": "/icon_1024x1024.876817d3c400e8278fb541155a25f83b.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon_1024x1024.876817d3c400e8278fb541155a25f83b.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_512x512.2c8e91399419e1c96c2f5ac940eaa225.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_384x384.58da7fd0e138d1761e1517858290a8a5.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_256x256.e3585c6704fc2bae095d31dc289b84c4.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_192x192.d1d5dff0516a3321702c2f7456a48867.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_128x128.449636be68b461230247b8a9cf670373.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_96x96.a4c9324413f8f169533186669db7eb0b.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "InstaChris | app creada con la finalidad de aprender funcionalidad de react. ",
+  "short_name": "InstaChris 😎",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "aplicacion Progresiva con especificaciones de react",
+  "background_color": "#ffffff",
+  "theme_color": "#2196f3"
+}
